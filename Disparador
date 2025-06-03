@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Disparador : MonoBehaviour
+{
+    public float tiempoDeVida;
+    private float TDVActual;
+    public int speed;
+
+    private void Start()
+    {
+        TDVActual = tiempoDeVida;
+    }
+    void Update()
+    {
+        transform.position +=
+        transform.forward *
+        speed * Time.deltaTime;
+
+        TDVActual -= Time.deltaTime;
+        if (TDVActual <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+}
